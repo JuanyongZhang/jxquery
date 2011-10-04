@@ -1,5 +1,6 @@
 package jxquery.google;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -17,7 +18,6 @@ import jxquery.google.utils.ArrayHelper;
 import jxquery.google.utils.ClassHelper;
 import jxquery.google.utils.Constants;
 import jxquery.google.utils.ReflectionHelper;
-
 import net.sf.json.JSONObject;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -28,6 +28,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /**
@@ -43,7 +44,8 @@ public class XMLPopulater {
 			XPathExpressionException {
 		DocumentBuilder db = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder();
-		Document doc = db.parse(xml);
+		Document doc = db.parse(new InputSource(new ByteArrayInputStream(xml
+				.getBytes("utf-8"))));
 		return eval(doc, vo);
 	}
 

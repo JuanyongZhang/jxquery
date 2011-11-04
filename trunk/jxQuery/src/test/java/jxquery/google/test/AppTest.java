@@ -33,6 +33,8 @@ public class AppTest {
 				.eval(in, p)));
 		Assert.assertEquals(fName, p.getFirstName());
 		Assert.assertEquals(faxNbr, p.getFax()[0].getNumber());
+		
+		System.out.println(p.getPhoneNumberJSON()[0].get("number"));
 		System.out.println("##########################");
 	}
 

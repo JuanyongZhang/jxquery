@@ -111,8 +111,8 @@
 				<artifactId>maven-scm-plugin</artifactId>
 				<version>${ver_maven-scm-plugin}</version>
 				<configuration>
-					<username>Juanyong.zhang@gmail.com</username>
-					<password>Jn4WU3Ah9gy5</password>
+					<username>${jxQuery_svn_username}</username>
+					<password>${jxQuery_svn_password}</password>
 				</configuration>
 			</plugin>
 		</plugins>

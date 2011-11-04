@@ -3,61 +3,89 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jxquery.google</groupId>
 	<artifactId>jxquery</artifactId>
-	<version>0.9.0</version>
+	<version>0.9.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>jxquery</name>
-	<url>http://maven.apache.org</url>
+	<url>http://code.google.com/p/jxquery</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<ver_junit>4.8.2</ver_junit>
+		<ver_commons-beanutils>1.8.3</ver_commons-beanutils>
+		<ver_commons-collections>3.2.1</ver_commons-collections>
+		<ver_commons-lang>2.5</ver_commons-lang>
+		<ver_commons-io>2.0.1</ver_commons-io>
+		<ver_json-lib>2.4</ver_json-lib>
+		<ver_log4j>1.2.9</ver_log4j>
+		<ver_ezmorph>1.0.6</ver_ezmorph>
+		<ver_maven-source-plugin>2.1.2</ver_maven-source-plugin>
 	</properties>
+
+	<scm>
+		<connection>scm:svn:https://jxquery.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:http://jxquery.googlecode.com/svn/trunk</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>release</id>
+			<name>CareFirst Releases</name>
+			<url>http://dveweb3:8086/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>CareFirst Snapshots</name>
+			<url>http://dveweb3:8086/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
+			<version>${ver_junit}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<version>1.8.3</version>
+			<version>${ver_commons-beanutils}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
+			<version>${ver_commons-collections}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>2.5</version>
+			<version>${ver_commons-lang}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.0.1</version>
+			<version>${ver_commons-io}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
-			<version>2.4</version>
+			<version>${ver_json-lib}</version>
 			<classifier>jdk15</classifier>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.9</version>
+			<version>${ver_log4j}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.ezmorph</groupId>
 			<artifactId>ezmorph</artifactId>
-			<version>1.0.6</version>
+			<version>${ver_ezmorph}</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
@@ -67,7 +95,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
+				<version>${ver_maven-source-plugin}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>

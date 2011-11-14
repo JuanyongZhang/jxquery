@@ -12,9 +12,9 @@ import java.lang.annotation.Target;
  * @Date : Sep 27, 2011
  */
 @Retention(RUNTIME)
-@Target({ FIELD })
-public @interface XQueryField {
+@Target( { FIELD })
+public @interface jxQuery {
 	String query();
 
-	String creator() default "";
+	Class<?> creator() default BlankClass.class;
 }

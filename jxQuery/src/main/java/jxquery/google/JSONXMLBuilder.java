@@ -13,7 +13,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import jxquery.google.utils.ClassHelper;
 import jxquery.google.utils.Constants;
 import jxquery.google.utils.JSONHelper;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -25,8 +24,7 @@ import org.w3c.dom.Text;
 
 public class JSONXMLBuilder {
 
-	private static Element buildLeaf(Document doc, Node node, String key,
-			Object value) {
+	private static Element buildLeaf(Document doc, String key, Object value) {
 		Element child = doc.createElement(key);
 		Text text = doc.createTextNode(value.toString());
 		child.appendChild(text);
@@ -50,7 +48,7 @@ public class JSONXMLBuilder {
 				Element child = null;
 
 				if (ClassHelper.isLangType(value)) {
-					child = buildLeaf(doc, node, key, value);
+					child = buildLeaf(doc, key, value);
 					if (!XML_ROOT.equals(node.getNodeName())) {
 						((Element) node).setAttribute(key, value.toString());
 					}
@@ -58,7 +56,7 @@ public class JSONXMLBuilder {
 				} else if (value instanceof JSONArray) {
 					for (Object jObj : ((JSONArray) value).toArray()) {
 						if (ClassHelper.isLangType(jObj)) {
-							child = buildLeaf(doc, node, key, jObj);
+							child = buildLeaf(doc, key, jObj);
 						} else {
 							child = doc.createElement(key);
 							child.setAttribute(Constants.XML_EMBEDDED_JSON,
@@ -69,8 +67,8 @@ public class JSONXMLBuilder {
 					}
 				} else if (value instanceof JSONObject) {
 					child = doc.createElement(key);
-					child.setAttribute(Constants.XML_EMBEDDED_JSON,
-							JSONHelper.getSingleQuoteString(value.toString()));
+					child.setAttribute(Constants.XML_EMBEDDED_JSON, JSONHelper
+							.getSingleQuoteString(value.toString()));
 					node.appendChild(buildNode(doc, child, value));
 				}
 			}

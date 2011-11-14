@@ -2,29 +2,28 @@ package jxquery.google.test.resume;
 
 import java.util.Date;
 
-import jxquery.google.XQueryField;
-
+import jxquery.google.jxQuery;
 
 /**
  * @Author : <a href="mailto:Juanyong.zhang@gmail.com">Juanyong.zhang</a>
  * @Date : Oct 2, 2011
  */
 public class Project {
-	@XQueryField(query = "name")
+	@jxQuery(query = "name")
 	private String name;
-	@XQueryField(query = "start", creator = "jxquery.google.creator.DateCreator")
+	@jxQuery(query = "start", creator = jxquery.google.creator.DateCreator.class)
 	private Date start;
-	@XQueryField(query = "end", creator = "jxquery.google.creator.DateCreator")
+	@jxQuery(query = "end", creator = jxquery.google.creator.DateCreator.class)
 	private Date end;
-	@XQueryField(query = "teamMbrCnt")
+	@jxQuery(query = "teamMbrCnt")
 	private Integer teamMbrCnt;
-	@XQueryField(query = "type")
+	@jxQuery(query = "type")
 	private String type;
-	@XQueryField(query = "role")
+	@jxQuery(query = "role")
 	private String role;
-	@XQueryField(query = "details")
+	@jxQuery(query = "details")
 	private String details;
-	@XQueryField(query = "enviroment")
+	@jxQuery(query = "enviroment")
 	private String enviroment;
 
 	public String getDetails() {

@@ -25,15 +25,15 @@ public class AppTest {
 		final String fName = "John";
 		final String faxNbr = "212 555-2345";
 
-		InputStream in = getResourceAsStreamFromPackage(
-				PersonInfo.class, fileName);
+		InputStream in = getResourceAsStreamFromPackage(PersonInfo.class,
+				fileName);
 
 		PersonInfo p = new PersonInfo();
 		System.out.println(ToStringBuilder.reflectionToString(JSONPopulater
 				.eval(in, p)));
 		Assert.assertEquals(fName, p.getFirstName());
 		Assert.assertEquals(faxNbr, p.getFax()[0].getNumber());
-		
+
 		System.out.println(p.getPhoneNumberJSON()[0].get("number"));
 		System.out.println("##########################");
 	}
@@ -45,8 +45,7 @@ public class AppTest {
 		final String email = "Juanyong.zhang@gmail.com";
 		final int count = 2;
 
-		InputStream in = getResourceAsStreamFromPackage(Resume.class,
-				fileName);
+		InputStream in = getResourceAsStreamFromPackage(Resume.class, fileName);
 
 		Resume r = new Resume();
 
@@ -66,13 +65,12 @@ public class AppTest {
 		final String faxNbr = "212 555-2345";
 
 		InputStream in = getResourceAsStreamFromPackage(
-				PersonInfo.class, fileName);
+				jxquery.google.test.person.xml.PersonInfo.class, fileName);
 
-		PersonInfo p = new PersonInfo();
+		jxquery.google.test.person.xml.PersonInfo p = new jxquery.google.test.person.xml.PersonInfo();
 		System.out.println(ToStringBuilder.reflectionToString(XMLPopulater
 				.eval(in, p)));
-		
-		
+
 		Assert.assertEquals(fName, p.getFirstName());
 		Assert.assertEquals(faxNbr, p.getFax()[0].getNumber());
 		System.out.println("##########################");
@@ -85,10 +83,10 @@ public class AppTest {
 		final String email = "Juanyong.zhang@gmail.com";
 		final int count = 2;
 
-		InputStream in = getResourceAsStreamFromPackage(Resume.class,
-				fileName);
+		InputStream in = getResourceAsStreamFromPackage(
+				jxquery.google.test.resume.xml.Resume.class, fileName);
 
-		Resume r = new Resume();
+		jxquery.google.test.resume.xml.Resume r = new jxquery.google.test.resume.xml.Resume();
 
 		System.out.println(ToStringBuilder.reflectionToString(XMLPopulater
 				.eval(in, r)));

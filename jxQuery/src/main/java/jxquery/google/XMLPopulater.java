@@ -39,45 +39,54 @@ import org.xml.sax.SAXException;
 public class XMLPopulater {
 	private static Log log = LogFactory.getLog(XMLPopulater.class);
 
-	public static <Vo extends Object> Vo eval(String xml, Vo vo)
-			throws ParserConfigurationException, SAXException, IOException,
-			XPathExpressionException {
+	protected static <Vo extends Object> Vo eval(String xml, Vo vo,
+			boolean fromJSON) throws ParserConfigurationException,
+			SAXException, IOException, XPathExpressionException {
 		DocumentBuilder db = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder();
 		Document doc = db.parse(new InputSource(new ByteArrayInputStream(xml
 				.getBytes("utf-8"))));
-		return eval(doc, vo);
+		return eval(doc, vo, fromJSON);
 	}
 
-	public static <Vo extends Object> Vo eval(InputStream xml, Vo vo)
-			throws ParserConfigurationException, SAXException, IOException,
-			XPathExpressionException {
-		// Document doc = JSONXMLBuilder.toXML(xml);
+	public static <Vo extends Object> Vo eval(String xml, Vo vo)
+			throws XPathExpressionException, ParserConfigurationException,
+			SAXException, IOException {
+		return eval(xml, vo, false);
+	}
 
+	protected static <Vo extends Object> Vo eval(InputStream xml, Vo vo,
+			boolean fromJSON) throws ParserConfigurationException,
+			SAXException, IOException, XPathExpressionException {
 		DocumentBuilder db = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder();
 		Document doc = db.parse(xml);
 
-		return eval(doc, vo);
+		return eval(doc, vo, fromJSON);
 	}
 
-	private static Object createValue(XQueryField xqf, Object org) {
+	public static <Vo extends Object> Vo eval(InputStream xml, Vo vo)
+			throws XPathExpressionException, ParserConfigurationException,
+			SAXException, IOException {
+
+		return eval(xml, vo, false);
+	}
+
+	private static Object createValue(jxQuery xqf, Object org) {
 
 		return createValue(xqf.creator(), org);
 	}
 
-	private static Object createValue(String creatorName, Object org) {
+	private static Object createValue(Class<?> creatorClass, Object org) {
 
 		Object value = null;
 		try {
-			if (StringUtils.isNotBlank(creatorName)) {
-				Object creator = Class.forName(creatorName).newInstance();
+			if (!creatorClass.equals(BlankClass.class)) {
+				Object creator = creatorClass.newInstance();
 				if (creator instanceof FieldCreator) {
-					value = ((FieldCreator) creator).build(org);
+					value = ((FieldCreator) creator).create(org);
 				}
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -88,15 +97,15 @@ public class XMLPopulater {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static <Vo extends Object, Attr extends Object> Vo eval(Node xml,
-			Vo vo) throws XPathExpressionException {
+	protected static <Vo extends Object, Attr extends Object> Vo eval(Node xml,
+			Vo vo, boolean fromJSON) throws XPathExpressionException {
 		log.debug("evaluate object:" + vo);
 
 		Field[] fields = ReflectionHelper.getAllFields(vo.getClass(),
-				XQueryField.class);
+				jxQuery.class);
 		for (Field f : fields) {
-			XQueryField xQuery = f.getAnnotation(XQueryField.class);
-			Object result = XQuerier.get(xml, f, xQuery);
+			jxQuery xQuery = f.getAnnotation(jxQuery.class);
+			Object result = XQuerier.get(xml, f, xQuery, fromJSON);
 			if (null != result) {
 
 				try {
@@ -122,7 +131,7 @@ public class XMLPopulater {
 
 							} else {
 								Object attr = f.getType().newInstance();
-								eval((Node) result, attr);
+								eval((Node) result, attr, fromJSON);
 								BeanUtils.setProperty(vo, f.getName(), attr);
 							}
 						} else if (result instanceof NodeList) {
@@ -140,19 +149,21 @@ public class XMLPopulater {
 									if (StringUtils
 											.isNotBlank(((Element) n)
 													.getAttribute(Constants.XML_EMBEDDED_JSON))) {
-										attr.add((Attr) JSONObject.fromObject(((Element) n)
-												.getAttribute(Constants.XML_EMBEDDED_JSON)));
+										attr
+												.add((Attr) JSONObject
+														.fromObject(((Element) n)
+																.getAttribute(Constants.XML_EMBEDDED_JSON)));
 									}
 								} else {
-									attr.add((Attr) eval(n,
-											attrType.newInstance()));
+									attr.add((Attr) eval(n, attrType
+											.newInstance(), fromJSON));
 								}
 							}
 
 							if (f.getType().isArray()) {
 								if (ClassHelper.isLangType(attrType)) {
-									BeanUtils.setProperty(vo, f.getName(),
-											attr.toArray());
+									BeanUtils.setProperty(vo, f.getName(), attr
+											.toArray());
 								} else {
 									BeanUtils.setProperty(vo, f.getName(),
 											ArrayHelper.createArray(attr,

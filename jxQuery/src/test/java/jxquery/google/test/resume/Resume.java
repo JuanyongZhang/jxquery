@@ -3,37 +3,36 @@ package jxquery.google.test.resume;
 import java.util.Date;
 import java.util.List;
 
-import jxquery.google.XQueryField;
-
+import jxquery.google.jxQuery;
 
 /**
  * @Author : <a href="mailto:Juanyong.zhang@gmail.com">Juanyong.zhang</a>
  * @Date : Oct 2, 2011
  */
 public class Resume {
-	@XQueryField(query = "/firstName")
+	@jxQuery(query = "/firstName")
 	private String firstName;
-	@XQueryField(query = "/lastName")
+	@jxQuery(query = "/lastName")
 	private String lastName;
-	@XQueryField(query = "/gender")
+	@jxQuery(query = "/gender")
 	private String gender;
-	@XQueryField(query = "/dob", creator = "jxquery.google.creator.DateCreator")
+	@jxQuery(query = "/dob", creator = jxquery.google.creator.DateCreator.class)
 	private Date dob;
-	@XQueryField(query = "/email")
+	@jxQuery(query = "/email")
 	private String email;
-	@XQueryField(query = "/address")
+	@jxQuery(query = "/address")
 	private Address address;
-	@XQueryField(query = "/phoneNumber[@type='home']")
+	@jxQuery(query = "/phoneNumber[@type='home']")
 	private PhoneNumber[] homeNumber;
-	@XQueryField(query = "/phoneNumber[@type='mobile']")
+	@jxQuery(query = "/phoneNumber[@type='mobile']")
 	private PhoneNumber[] mobile;
-	@XQueryField(query = "/summary")
+	@jxQuery(query = "/summary")
 	private String summary;
-	@XQueryField(query = "/skills")
+	@jxQuery(query = "/skills")
 	private String[] skills;
-	@XQueryField(query = "/projects")
+	@jxQuery(query = "/projects")
 	private List<Project> projects;
-	@XQueryField(query = "/projects[@teamMbrCnt>=20]")
+	@jxQuery(query = "/projects[@teamMbrCnt>=20]")
 	private List<Project> projectsSizeGt20;
 
 	public Address getAddress() {

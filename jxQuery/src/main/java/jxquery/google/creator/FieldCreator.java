@@ -13,6 +13,6 @@ package jxquery.google.creator;
  */
 public interface FieldCreator {
 
-	public Object build(Object org);
+	public Object create(Object org);
 
 }

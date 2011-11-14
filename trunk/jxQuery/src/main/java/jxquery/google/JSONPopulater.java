@@ -18,14 +18,14 @@ public class JSONPopulater {
 
 		Document doc = JSONXMLBuilder.toXML(xml);
 
-		return XMLPopulater.eval(doc, vo);
+		return XMLPopulater.eval(doc, vo, true);
 	}
 
 	public static <Vo extends Object> Vo eval(InputStream xml, Vo vo)
 			throws IOException, XPathExpressionException {
 		Document doc = JSONXMLBuilder.toXML(xml);
 
-		return XMLPopulater.eval(doc, vo);
+		return XMLPopulater.eval(doc, vo, true);
 	}
 
 }

@@ -1,15 +1,15 @@
 package jxquery.google.test.person;
 
-import jxquery.google.XQueryField;
+import jxquery.google.jxQuery;
 
 /**
  * @Author : <a href="mailto:Juanyong.zhang@gmail.com">Juanyong.zhang</a>
  * @Date : Aug 31, 2011
  */
 public class PhoneNumber {
-	@XQueryField(query = "type")
+	@jxQuery(query = "type")
 	private String type;
-	@XQueryField(query = "number")
+	@jxQuery(query = "number")
 	private String number;
 
 	public String getNumber() {

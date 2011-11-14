@@ -1,19 +1,19 @@
 package jxquery.google.test.person;
 
-import jxquery.google.XQueryField;
+import jxquery.google.jxQuery;
 
 /**
  * @Author : <a href="mailto:Juanyong.zhang@gmail.com">Juanyong.zhang</a>
  * @Date : Aug 31, 2011
  */
 public class Address {
-	@XQueryField(query = "streetAddress")
+	@jxQuery(query = "streetAddress")
 	private String streetAddress;
-	@XQueryField(query = "city")
+	@jxQuery(query = "city")
 	private String city;
-	@XQueryField(query = "state")
+	@jxQuery(query = "state")
 	private String state;
-	@XQueryField(query = "postalCode")
+	@jxQuery(query = "postalCode")
 	private String postalCode;
 
 	public String getCity() {

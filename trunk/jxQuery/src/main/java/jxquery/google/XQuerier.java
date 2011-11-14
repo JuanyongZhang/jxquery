@@ -1,7 +1,5 @@
 package jxquery.google;
 
-import static jxquery.google.utils.Constants.SLASH;
-
 import java.lang.reflect.Field;
 
 import javax.xml.xpath.XPath;
@@ -24,9 +22,9 @@ import org.w3c.dom.NodeList;
 public class XQuerier {
 	private final static XPath XPath = XPathFactory.newInstance().newXPath();
 
-	public static Object get(Node xml, Field f, XQueryField xqf)
+	public static Object get(Node xml, Field f, jxQuery xqf, boolean fromJSON)
 			throws XPathExpressionException {
-		String query = getQueryString(xqf);
+		String query = getQueryString(xqf, fromJSON);
 		XPathExpression xquery = XPath.compile(query);
 		Object result = (Node) xquery.evaluate(xml, XPathConstants.NODE);
 
@@ -38,10 +36,10 @@ public class XQuerier {
 		return result;
 	}
 
-	private static String getQueryString(XQueryField xqf) {
+	private static String getQueryString(jxQuery xqf, boolean fromJSON) {
 		String query = xqf.query();
 
-		if (StringUtils.startsWith(query, SLASH)) {
+		if (fromJSON && StringUtils.startsWith(query, Constants.SLASH)) {
 			query = Constants.XML_ROOT + query;
 		}
 

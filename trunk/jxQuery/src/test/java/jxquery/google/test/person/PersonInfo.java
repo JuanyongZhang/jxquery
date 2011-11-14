@@ -3,43 +3,41 @@ package jxquery.google.test.person;
 import java.util.Date;
 import java.util.List;
 
-import jxquery.google.XQueryField;
-
+import jxquery.google.jxQuery;
 import net.sf.json.JSONObject;
-
 
 /**
  * @Author : <a href="mailto:Juanyong.zhang@gmail.com">Juanyong.zhang</a>
  * @Date : Aug 31, 2011
  */
 public class PersonInfo {
-	@XQueryField(query = "/firstName")
+	@jxQuery(query = "/firstName")
 	private String firstName;
-	@XQueryField(query = "/lastName")
+	@jxQuery(query = "/lastName")
 	private String lastName;
-	@XQueryField(query = "/age")
+	@jxQuery(query = "/age")
 	private Integer age;
-	@XQueryField(query = "/dob", creator = "jxquery.google.creator.DateCreator")
+	@jxQuery(query = "/dob", creator = jxquery.google.creator.DateCreator.class)
 	private Date dob;
-	@XQueryField(query = "/height")
+	@jxQuery(query = "/height")
 	private Float height;
-	@XQueryField(query = "/isMarried")
+	@jxQuery(query = "/isMarried")
 	private Boolean isMarried;
-	@XQueryField(query = "/nickname")
+	@jxQuery(query = "/nickname")
 	private String[] nickname;
-	@XQueryField(query = "/eyeSight")
+	@jxQuery(query = "/eyeSight")
 	private Float[] eyeSight;
-	@XQueryField(query = "/address")
+	@jxQuery(query = "/address")
 	private Address address;
-	@XQueryField(query = "/address")
+	@jxQuery(query = "/address")
 	private JSONObject addressJSON;
-	@XQueryField(query = "/phoneNumber")
+	@jxQuery(query = "/phoneNumber")
 	private PhoneNumber[] phoneNumber;
-	@XQueryField(query = "/phoneNumber[@type='fax']")
+	@jxQuery(query = "/phoneNumber[@type='fax']")
 	private PhoneNumber[] fax;
-	@XQueryField(query = "/phoneNumber")
+	@jxQuery(query = "/phoneNumber")
 	private JSONObject[] phoneNumberJSON;
-	@XQueryField(query = "/phoneNumber")
+	@jxQuery(query = "/phoneNumber")
 	private List<PhoneNumber> phoneNumberList;
 
 	public Address getAddress() {

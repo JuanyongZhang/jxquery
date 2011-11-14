@@ -21,7 +21,7 @@ public class DateCreator implements FieldCreator {
      * @param  dateNode  the initial capacity of the list
      * @return  {@link Date Date}
      */
-	public Date build(Object dateNode) {
+	public Date create(Object dateNode) {
 		Date date = null;
 		if (dateNode instanceof Node) {
 			try {

@@ -17,12 +17,12 @@ import jxquery.google.creator.FieldCreator;
 import jxquery.google.utils.ArrayHelper;
 import jxquery.google.utils.ClassHelper;
 import jxquery.google.utils.Constants;
+import jxquery.google.utils.LogWrapper;
 import jxquery.google.utils.ReflectionHelper;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -37,7 +37,8 @@ import org.xml.sax.SAXException;
  * @Date : Sep 27, 2011
  */
 public class XMLPopulater {
-	private static Log log = LogFactory.getLog(XMLPopulater.class);
+	private static LogWrapper log = new LogWrapper(LogFactory
+			.getLog(XMLPopulater.class));
 
 	protected static <Vo extends Object> Vo eval(String xml, Vo vo,
 			boolean fromJSON) throws ParserConfigurationException,

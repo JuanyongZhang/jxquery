@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jxquery.google</groupId>
 	<artifactId>jxquery</artifactId>
-	<version>0.9.3-SNAPSHOT</version>
+	<version>0.9.3</version>
 	<packaging>jar</packaging>
 	<name>jxquery</name>
 	<url>http://code.google.com/p/jxquery</url>
@@ -22,8 +22,8 @@
 	</properties>
 
 	<scm>
-		<connection>scm:svn:http://jxquery.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/trunk</developerConnection>
+		<connection>scm:svn:http://jxquery.googlecode.com/svn/tags/jxquery-0.9.3</connection>
+		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/tags/jxquery-0.9.3</developerConnection>
 	</scm>
 
 	<distributionManagement>

@@ -37,6 +37,7 @@
 			<name>CareFirst Snapshots</name>
 			<url>http://dveweb3:8086/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
+		
 	</distributionManagement>
 
 

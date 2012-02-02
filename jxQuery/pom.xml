@@ -26,21 +26,6 @@
 		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/trunk</developerConnection>
 	</scm>
 
-	<distributionManagement>
-		<repository>
-			<id>release</id>
-			<name>CareFirst Releases</name>
-			<url>http://dveweb3:8086/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>CareFirst Snapshots</name>
-			<url>http://dveweb3:8086/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-		
-	</distributionManagement>
-
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

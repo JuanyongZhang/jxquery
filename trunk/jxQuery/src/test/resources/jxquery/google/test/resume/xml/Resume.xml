@@ -1,9 +1,9 @@
 <xmlRoot>
-	<firstName>Juanyong</firstName>
-	<lastName>Zhang</lastName>
+	<firstName>John</firstName>
+	<lastName>Smith</lastName>
 	<gender>Male</gender>
-	<dob>1983-01-01</dob>
-	<email>Juanyong.zhang@gmail.com</email>
+	<dob>1950-01-01</dob>
+	<email>jsmith@gmail.com</email>
 	<address city="New York City" state="NY" streetAddress="21 2nd Street">
 		<streetAddress>21 2nd Street</streetAddress>
 		<city>New York City</city>
@@ -56,8 +56,7 @@
 		<type>development</type>
 		<role>TECHNICAL LEADER /IBM PORTAL Sr. DEVELOPER</role>
 		<details>Developed the JSR-286 Portlets with Spring MVC and Spring
-			IOC;Utilized SOAP as service interface;Created XML Access Script for
-			setup page structure, url mapping and access control;
+			IOC;
 		</details>
 		<environment>IBM Websphere Portal 6.1, IBM AIX Unix, JSR268, Spring,
 			JSP, MAVEN, SOAP, iText, Freemarker, CSS/HTML, jQuery, RAD
@@ -65,18 +64,18 @@
 	</projects>
 	<projects end="2011-03-01" start="2009-11-01" teamMbrCnt="40"
 		type="enhancement">
-		<name>Member/Provider Portal Enhancement</name>
+		<name>Portal Enhancement</name>
 		<start>2009-11-01</start>
 		<end>2011-03-01</end>
 		<teamMbrCnt>40</teamMbrCnt>
 		<type>enhancement</type>
 		<role>TECHNICAL LEADER /IBM PORTAL Sr. DEVELOPER</role>
-		<details>Enhancement and Defects fixing of Member/Provider
+		<details>Enhancement and Defects fixing of
 			Portal;Developed the JSR-286 Portlets with Spring MVC and Spring
-			IOC;Created Websphere portal theme and theme policy with Websphere
-			portal SPI, Websphere portal tag-lib;Utilized JSON as data exchange
-			format;Created a set of annotation to parse the JSON format
-			string;Utilized the xstream to convert java object to JSON string
+			IOC;Created Websphere
+			portal theme and theme policy with Websphere
+			portal SPI, Websphere
+			portal tag-lib;
 		</details>
 		<environment>IBM Websphere Portal 6.1, IBM AIX Unix, JSR268, Spring,
 			JSP, MAVEN, SOAP, iText, Freemarker, CSS/HTML, jQuery, RAD

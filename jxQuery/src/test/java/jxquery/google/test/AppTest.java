@@ -42,8 +42,8 @@ public class AppTest {
 	public void testResumeJSON() throws Exception {
 		final String fileName = "resume.json";
 
-		final String email = "Juanyong.zhang@gmail.com";
-		final int count = 2;
+		final String email = "jsmith@gmail.com";
+		final int count = 1;
 
 		InputStream in = getResourceAsStreamFromPackage(Resume.class, fileName);
 
@@ -80,7 +80,7 @@ public class AppTest {
 	public void testResumeXML() throws Exception {
 		final String fileName = "resume.xml";
 
-		final String email = "Juanyong.zhang@gmail.com";
+		final String email = "jsmith@gmail.com";
 		final int count = 2;
 
 		InputStream in = getResourceAsStreamFromPackage(

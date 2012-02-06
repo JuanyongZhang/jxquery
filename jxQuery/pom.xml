@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jxquery.google</groupId>
 	<artifactId>jxquery</artifactId>
@@ -24,8 +23,8 @@
 	</properties>
 
 	<scm>
-		<connection>scm:svn:http://jxquery.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/trunk</developerConnection>
+		<connection>scm:svn:http://jxquery.googlecode.com/svn/tags/jxquery-0.9.4</connection>
+		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/tags/jxquery-0.9.4</developerConnection>
 	</scm>
 
 	<distributionManagement>
@@ -127,19 +126,6 @@
 					<username>${jxQuery_svn_username}</username>
 					<password>${jxQuery_svn_password}</password>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -7,13 +7,13 @@ import jxquery.google.jxQuery;
  * @Date : Aug 31, 2011
  */
 public class Address {
-	@jxQuery(query = "streetAddress")
+	@jxQuery(query = "address/streetAddress")
 	private String streetAddress;
-	@jxQuery(query = "city")
+	@jxQuery(query = "address/city")
 	private String city;
-	@jxQuery(query = "state")
+	@jxQuery(query = "address/state")
 	private String state;
-	@jxQuery(query = "postalCode")
+	@jxQuery(query = "address/postalCode")
 	private String postalCode;
 
 	public String getCity() {

@@ -7,9 +7,9 @@ import jxquery.google.jxQuery;
  * @Date : Aug 31, 2011
  */
 public class PhoneNumber {
-	@jxQuery(query = "type")
+	@jxQuery(query = "phoneNumber/type")
 	private String type;
-	@jxQuery(query = "number")
+	@jxQuery(query = "phoneNumber/number")
 	private String number;
 
 	public String getNumber() {

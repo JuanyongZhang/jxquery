@@ -9,21 +9,21 @@ import jxquery.google.jxQuery;
  * @Date : Oct 2, 2011
  */
 public class Project {
-	@jxQuery(query = "name")
+	@jxQuery(query = "projects/name")
 	private String name;
-	@jxQuery(query = "start", creator = jxquery.google.creator.DateCreator.class)
+	@jxQuery(query = "projects/start", creator = jxquery.google.creator.DateCreator.class)
 	private Date start;
-	@jxQuery(query = "end", creator = jxquery.google.creator.DateCreator.class)
+	@jxQuery(query = "projects/end", creator = jxquery.google.creator.DateCreator.class)
 	private Date end;
-	@jxQuery(query = "teamMbrCnt")
+	@jxQuery(query = "projects/teamMbrCnt")
 	private Integer teamMbrCnt;
-	@jxQuery(query = "type")
+	@jxQuery(query = "projects/type")
 	private String type;
-	@jxQuery(query = "role")
+	@jxQuery(query = "projects/role")
 	private String role;
-	@jxQuery(query = "details")
+	@jxQuery(query = "projects/details")
 	private String details;
-	@jxQuery(query = "enviroment")
+	@jxQuery(query = "projects/enviroment")
 	private String enviroment;
 
 	public String getDetails() {

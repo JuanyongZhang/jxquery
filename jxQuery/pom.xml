@@ -3,10 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jxquery.google</groupId>
 	<artifactId>jxquery</artifactId>
-	<version>0.9.3</version>
+	<version>0.9.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>jxquery</name>
 	<url>http://code.google.com/p/jxquery</url>
+	<description>jxquery</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -127,6 +128,20 @@
 					<password>${jxQuery_svn_password}</password>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
 </project>

@@ -10,8 +10,10 @@ import javax.xml.xpath.XPathFactory;
 
 import jxquery.google.utils.Constants;
 import jxquery.google.utils.ReflectionHelper;
+import jxquery.google.utils.XMLHelper;
 
 import org.apache.commons.lang.StringUtils;
+import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -24,14 +26,19 @@ public class XQuerier {
 
 	public static Object get(Node xml, Field f, jxQuery xqf, boolean fromJSON)
 			throws XPathExpressionException {
+		Document absoluteXML = XMLHelper.getAbsoluteXML(xml);
 		String query = getQueryString(xqf, fromJSON);
 		XPathExpression xquery = XPath.compile(query);
-		Object result = (Node) xquery.evaluate(xml, XPathConstants.NODE);
+
+		Object result = null;
 
 		if (ReflectionHelper.isCollectionType(f.getType())) {
-			result = (NodeList) xquery.evaluate(xml, XPathConstants.NODESET);
+
+			result = (NodeList) xquery.evaluate(absoluteXML,
+					XPathConstants.NODESET);
 		} else {
-			result = (Node) xquery.evaluate(xml, XPathConstants.NODE);
+
+			result = (Node) xquery.evaluate(absoluteXML, XPathConstants.NODE);
 		}
 		return result;
 	}

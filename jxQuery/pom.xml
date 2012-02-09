@@ -5,7 +5,7 @@
 	<version>0.9.5-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>jxquery</name>
-	<url>http://code.google.com/p/jxquery</url>
+	<url>http://jxquery.googlecode.com</url>
 	<description>jxquery</description>
 
 	<properties>
@@ -27,6 +27,7 @@
 		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/trunk/jxQuery/</developerConnection>
 	</scm>
 
+<!-- 
 	<distributionManagement>
 		<repository>
 			<id>central-repo-release</id>
@@ -35,6 +36,7 @@
 		</repository>
 	</distributionManagement>
 
+ -->
 
 	<licenses>
 		<license>

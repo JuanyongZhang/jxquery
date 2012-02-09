@@ -11,8 +11,7 @@ package jxquery.google.creator;
  * @Date:Sep 29, 2011
  * 
  */
-public interface FieldCreator {
+public interface FieldCreator<T> {
 
-	public Object create(Object org);
-
+	public T create(Object org);
 }

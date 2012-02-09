@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jxquery.google</groupId>
 	<artifactId>jxquery</artifactId>
@@ -20,6 +21,7 @@
 		<ver_ezmorph>1.0.6</ver_ezmorph>
 		<ver_maven-source-plugin>2.1.2</ver_maven-source-plugin>
 		<ver_maven-scm-plugin>1.5</ver_maven-scm-plugin>
+		<ver_maven-gpg-plugin>1.4</ver_maven-gpg-plugin>
 	</properties>
 
 	<scm>
@@ -27,16 +29,9 @@
 		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/trunk/jxQuery/</developerConnection>
 	</scm>
 
-<!-- 
-	<distributionManagement>
-		<repository>
-			<id>central-repo-release</id>
-			<name>central-repo-release</name>
-			<url>https://oss.sonatype.org/content/groups/public/</url>
-		</repository>
-	</distributionManagement>
-
- -->
+	<!-- <distributionManagement> <repository> <id>central-repo-release</id> 
+		<name>central-repo-release</name> <url>https://oss.sonatype.org/content/groups/public/</url> 
+		</repository> </distributionManagement> -->
 
 	<licenses>
 		<license>
@@ -128,6 +123,20 @@
 					<username>${jxQuery_svn_username}</username>
 					<password>${jxQuery_svn_password}</password>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${ver_maven-gpg-plugin}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

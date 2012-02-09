@@ -6,6 +6,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import jxquery.google.creator.FieldCreator;
+
 /**
  * @Author : <a href="mailto:Juanyong.zhang@carefirst.com">Cham
  *         Juanyong.zhang</a>
@@ -16,5 +18,5 @@ import java.lang.annotation.Target;
 public @interface jxQuery {
 	String query();
 
-	Class<?> creator() default BlankClass.class;
+	Class<? extends FieldCreator<?>> creator() default BlankClass.class;
 }

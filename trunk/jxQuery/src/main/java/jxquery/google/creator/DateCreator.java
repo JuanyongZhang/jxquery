@@ -11,16 +11,17 @@ import org.w3c.dom.Node;
  *         Juanyong.zhang</a>
  * @Date : Sep 29, 2011
  */
-public class DateCreator implements FieldCreator {
+public class DateCreator implements FieldCreator<Date> {
 	private final static String[] patterns = { "yyyy-MM-dd", "yyyy/MM/dd" };
 
-	
-    /**
-     * Covert node txt node into {@link Date Date} with patterns:  "yyyy-MM-dd", "yyyy/MM/dd"
-     *
-     * @param  dateNode  the initial capacity of the list
-     * @return  {@link Date Date}
-     */
+	/**
+	 * Covert node txt node into {@link Date Date} with patterns: "yyyy-MM-dd",
+	 * "yyyy/MM/dd"
+	 * 
+	 * @param dateNode
+	 *            the initial capacity of the list
+	 * @return {@link Date Date}
+	 */
 	public Date create(Object dateNode) {
 		Date date = null;
 		if (dateNode instanceof Node) {

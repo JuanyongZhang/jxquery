@@ -37,8 +37,8 @@ import org.xml.sax.SAXException;
  * @Date : Sep 27, 2011
  */
 public class XMLPopulater {
-	private static LogWrapper log = new LogWrapper(LogFactory
-			.getLog(XMLPopulater.class));
+	private static LogWrapper log = new LogWrapper(
+			LogFactory.getLog(XMLPopulater.class));
 
 	protected static <Vo extends Object> Vo eval(String xml, Vo vo,
 			boolean fromJSON) throws ParserConfigurationException,
@@ -78,15 +78,15 @@ public class XMLPopulater {
 		return createValue(xqf.creator(), org);
 	}
 
-	private static Object createValue(Class<?> creatorClass, Object org) {
+	@SuppressWarnings("unchecked")
+	private static <T> T createValue(Class<?> creatorClass, Object org) {
 
-		Object value = null;
+		T value = null;
 		try {
 			if (!creatorClass.equals(BlankClass.class)) {
-				Object creator = creatorClass.newInstance();
-				if (creator instanceof FieldCreator) {
-					value = ((FieldCreator) creator).create(org);
-				}
+				FieldCreator<T> creator = (FieldCreator<T>) creatorClass
+						.newInstance();
+				value = creator.create(org);
 			}
 		} catch (InstantiationException e) {
 			e.printStackTrace();
@@ -150,21 +150,19 @@ public class XMLPopulater {
 									if (StringUtils
 											.isNotBlank(((Element) n)
 													.getAttribute(Constants.XML_EMBEDDED_JSON))) {
-										attr
-												.add((Attr) JSONObject
-														.fromObject(((Element) n)
-																.getAttribute(Constants.XML_EMBEDDED_JSON)));
+										attr.add((Attr) JSONObject.fromObject(((Element) n)
+												.getAttribute(Constants.XML_EMBEDDED_JSON)));
 									}
 								} else {
-									attr.add((Attr) eval(n, attrType
-											.newInstance(), fromJSON));
+									attr.add((Attr) eval(n,
+											attrType.newInstance(), fromJSON));
 								}
 							}
 
 							if (f.getType().isArray()) {
 								if (ClassHelper.isLangType(attrType)) {
-									BeanUtils.setProperty(vo, f.getName(), attr
-											.toArray());
+									BeanUtils.setProperty(vo, f.getName(),
+											attr.toArray());
 								} else {
 									BeanUtils.setProperty(vo, f.getName(),
 											ArrayHelper.createArray(attr,

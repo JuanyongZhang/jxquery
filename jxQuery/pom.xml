@@ -22,6 +22,7 @@
 		<ver_maven-source-plugin>2.1.2</ver_maven-source-plugin>
 		<ver_maven-scm-plugin>1.5</ver_maven-scm-plugin>
 		<ver_maven-gpg-plugin>1.4</ver_maven-gpg-plugin>
+		<ver_maven-javadoc-plugin>2.8.1</ver_maven-javadoc-plugin>
 	</properties>
 
 	<scm>
@@ -138,6 +139,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${ver_maven-javadoc-plugin}</version>
 			</plugin>
 		</plugins>
 	</build>

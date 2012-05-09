@@ -8,7 +8,6 @@ import jxquery.google.creator.FieldCreator;
  */
 public final class BlankClass implements FieldCreator<BlankClass> {
 
-	@Override
 	public BlankClass create(Object org) {
 		// TODO Auto-generated method stub
 		return null;

@@ -1,4 +1,6 @@
 #NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Sun Feb 16 17:03:07 EST 2014
+#Mon Mar 10 12:38:32 EDT 2014
+websphere-portal-plugin-1.0.0.pom>=
 websphere-portal-plugin-1.0.0.pom>jxquery-repo=
 websphere-portal-plugin-1.0.0.jar>jxquery-repo=
+websphere-portal-plugin-1.0.0.jar>=

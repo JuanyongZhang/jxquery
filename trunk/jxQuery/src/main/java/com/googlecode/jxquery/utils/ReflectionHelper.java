@@ -16,7 +16,7 @@ import org.apache.commons.lang.ClassUtils;
  */
 public class ReflectionHelper {
 	public static <A extends Annotation> Field[] getAllFields(Class<?> type,
-			Class<A>... qualifieds) {
+			@SuppressWarnings("unchecked") Class<A>... qualifieds) {
 		Set<Field> fs = new HashSet<Field>();
 		if (null != qualifieds && qualifieds.length > 0) {
 			CollectionUtils.addAll(fs,

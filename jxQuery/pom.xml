@@ -20,10 +20,10 @@
 		<ver_log4j>1.2.9</ver_log4j>
 		<ver_slf4j>1.7.7</ver_slf4j>
 		<ver_ezmorph>1.0.6</ver_ezmorph>
-		<ver_maven-source-plugin>2.1.2</ver_maven-source-plugin>
-		<ver_maven-scm-plugin>1.5</ver_maven-scm-plugin>
-		<ver_maven-gpg-plugin>1.4</ver_maven-gpg-plugin>
-		<ver_maven-javadoc-plugin>2.8.1</ver_maven-javadoc-plugin>
+		<ver_maven-source-plugin>2.2.1</ver_maven-source-plugin>
+		<ver_maven-javadoc-plugin>2.9.1</ver_maven-javadoc-plugin>
+		<ver_maven-gpg-plugin>1.5</ver_maven-gpg-plugin>
+		<ver_maven-scm-plugin>1.9</ver_maven-scm-plugin>
 	</properties>
 
 	<scm>
@@ -31,6 +31,19 @@
 		<connection>scm:svn:http://jxquery.googlecode.com/svn/trunk/jxQuery/</connection>
 		<developerConnection>scm:svn:https://jxquery.googlecode.com/svn/trunk/jxQuery/</developerConnection>
 	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>sonatype-release</id>
+			<name>Sonatype Release Repository</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+		<snapshotRepository>
+			<id>sonatype-snapshots</id>
+			<name>Sonatype Snapshot Repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<licenses>
 		<license>
@@ -114,10 +127,24 @@
 						<id>attach-sources</id>
 						<phase>verify</phase>
 						<goals>
-							<goal>jar-no-fork</goal>
+			        		<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-javadoc-plugin</artifactId>
+			  <version>${ver_maven-javadoc-plugin}</version>
+			  <executions>
+			    <execution>
+			      <id>attach-javadocs</id>
+			      <phase>verify</phase>
+			      <goals>
+			        <goal>jar</goal>
+			      </goals>
+			    </execution>
+			  </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -128,7 +155,6 @@
 					<password>${jxQuery_svn_password}</password>
 				</configuration>
 			</plugin>
-<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -143,7 +169,6 @@
 					</execution>
 				</executions>
 			</plugin>
- -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>

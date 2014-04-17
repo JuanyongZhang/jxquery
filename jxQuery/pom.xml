@@ -151,8 +151,8 @@
 				<artifactId>maven-scm-plugin</artifactId>
 				<version>${ver_maven-scm-plugin}</version>
 				<configuration>
-					<username>${jxQuery_svn_username}</username>
-					<password>${jxQuery_svn_password}</password>
+					<username>${googlecode_svn_username}</username>
+					<password>${googlecode_svn_password}</password>
 				</configuration>
 			</plugin>
 			<plugin>

@@ -1,0 +1,27 @@
+<xmlRoot>
+	<firstName>John</firstName>
+	<lastName>Smith</lastName>
+	<age>25</age>
+	<height>5.9</height>
+	<dob>1990-11-05</dob>
+	<isMarried>false</isMarried>
+	<eyeSight>4.8</eyeSight>
+	<eyeSight>4.9</eyeSight>
+	<nickname>tom</nickname>
+	<nickname>tim</nickname>
+	<address city="New York" state="NY" streetAddress="21 2nd Street">
+		<streetAddress>21 2nd Street</streetAddress>
+		<city>New York</city>
+		<state>NY</state>
+		<postalCode>10021</postalCode>
+		<postalCode>10022</postalCode>
+	</address>
+	<phoneNumber type="home">
+		<type>home</type>
+		<number>212 555-1234</number>
+	</phoneNumber>
+	<phoneNumber type="fax">
+		<type>fax</type>
+		<number>212 555-2345</number>
+	</phoneNumber>
+</xmlRoot>
